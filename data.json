@@ -1,0 +1,16 @@
+{
+  "lessons": [
+    {
+      "id": 0,
+      "name": "MARP Testing",
+      "description": "This is a test lesson to check if #1, the compiler works, and #2, the lesson is displayed correctly.",
+      "file": "lessons/000_marp_test.md"
+    },
+    {
+      "id": 1,
+      "name": "Coding & Programming Introduction",
+      "description": "StuyFBLA introduces you to the world of coding and programming. We'll introduce you to your teachers, discuss policy and regulations, and give you a brief overview of lessons to come.",
+      "file": "lessons/001_coding_intro.md"
+    }
+  ]
+}

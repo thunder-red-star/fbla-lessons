@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StuyFBLA Lesson List</title>
+    <link rel="stylesheet" href="https://css.furret.dev/furretcss/v2/full/dark.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+            href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+    />
+</head>
+<body>
+    <div class="container">
+        <!-- EJS templating that creates a list of all the lessons, and marks the current lesson as active -->
+        <h1>C&P Lessons</h1>
+        <p>Use this list to keep up with lessons we're presenting and access slides remotely.</p>
+        <% for (let i = 0; i < lessons.length; i++) { %>
+            <div><h4 class="lesson-title" style="display: inline-block"><%= lessons[i].name %></h4><h6 style="display: inline-block"><a href = '<%= lessons[i].file.replace(".md", ".html") %>' class="btn btn-primary">Slides</a></h6></div>
+            <p class="lesson-description"><%= lessons[i].description %></p>
+        <% } %>
+    </div>
+</body>
