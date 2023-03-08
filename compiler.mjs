@@ -2,32 +2,24 @@
 import {Marp} from '@marp-team/marp-core'
 import * as fs from 'fs'
 import * as path from 'path'
+import {spawn} from 'child_process'
 
 // __dirname polyfill
 const __dirname = path.resolve()
 
 // Load lessons from lessons folder
 let lessons = fs.readdirSync('lessons')
-let marp = new Marp({minifyCSS: true, html: true})
+
 // For each lesson, convert Markdown slide deck into HTML and CSS
 for (let lesson of lessons) {
-	// Add custom CSS from themes/darcula.css to theme-set
-	let darcula = fs.readFileSync(path.join('themes', 'darcula.css'), 'utf8')
-	marp.themeSet.add({
-		darcula: {
-			css: darcula
-		}
-	})
-	let {html, marpCSS} = marp.render(fs.readFileSync(path.join('lessons', lesson), 'utf8'))
-	// Convert HTML to HTML with CSS
-	let htmlify = (marpHTML, marpCSS) => {
-		let html = marpHTML
-		let head = `<head><style>${marpCSS}</style></head>`;
-		let body = `<body>${html}</body>`;
-		return `<html>${head}${body}</html>`;
-	}
-	fs.writeFileSync(path.join('html', lesson.replace('.md', '.html')), htmlify(html, marpCSS));
-	console.log("Compiled " + lesson)
+	console.log(`Compiling ${lesson}...`)
+	// Use the MARP CLI to convert the Markdown file into HTML and CSS. We are using the CLI because we want to use custom themes. Our custom theme is in themes/dracula.css.
+	let command = `marp --engine @marp-team/marp-core --theme ./themes/gradient.css --html --css --allow-local-files --output ./html/${lesson.replace('.md', '.html')} ./lessons/${lesson}`
+	console.log(command);
+	// Run command asynchronously
+	(async () => {
+		spawn(command, {shell: true, stdio: 'inherit'})
+	})();
 }
 
 // Load data from data.json

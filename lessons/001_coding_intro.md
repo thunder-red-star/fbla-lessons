@@ -2,8 +2,6 @@
 theme: darcula
 _class: lead
 paginate: true
-backgroundColor: #fff
-backgroundImage: url('https://marp.app/assets/hero-background.svg')
 ---
 
 ![bg left:50% 100%](https://spaceshuttle-sbm-1-q3754400.deta.app/cdn/jyg7j1tzmaoy.png)
@@ -27,11 +25,22 @@ More importantly, why are you here?
 ---
 
 ## Agenda for today
+- Who are we?
 - Attendance and logistics
 - What is programming?
 - Why is it useful in business?
 - Setting up your programming environment
 - Q&A
+
+---
+
+![bg left:40% 80%](https://spaceshuttle-sbm-1-q3754400.deta.app/cdn/5j94gearyww5.png)
+
+## Who are we?
+- I'm Will and he's Orlin
+- I'm orli and he's wil
+- We both have lots of programming experience and would love to share it with you
+- Plug: we're working on a new app called Flyboat, it's a drop-in replacement for Talos since Talos sucks. When we're done please help us by begging the school to switch to Flyboat!
 
 ---
 
