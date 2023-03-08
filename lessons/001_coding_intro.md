@@ -1,5 +1,5 @@
 ---
-theme: gaia
+theme: darcula
 _class: lead
 paginate: true
 backgroundColor: #fff
