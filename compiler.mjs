@@ -46,6 +46,22 @@ app.get('/lessons/:ID', (req, res) => {
 	return res.sendFile(path.join(__dirname, 'html', id))
 });
 
+app.get('/error', (req, res) => {
+	// Test error
+	throw new Error('Test error oops')
+});
+
+// 404 catch-all
+app.get('*', (req, res) => {
+	return res.render('404')
+});
+
+// 500 catch-all
+app.use((err, req, res, next) => {
+	console.error(err.stack)
+	return res.render('500', {error: err.stack})
+});
+
 // Start server
 app.listen(3016, () => {
 	// weird port but cloudflared moment (i forgot which other ports were in use)
